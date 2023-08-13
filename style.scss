@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    box-sizing: content-box;
+}
+
+.paint-container {
+    outline: 2px solid;
+    margin: auto;
+    width: 90%;
+    max-width: 750px;
+    display: grid;
+    gap: 0;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16,1fr);
+
+    .box {
+        margin: 0;
+        width: 46px;
+        height: 46px;
+        outline: 1px solid black;
+    }
+}
