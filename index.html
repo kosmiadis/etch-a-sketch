@@ -5,12 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch a Sketch!</title>
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
-    <div class="paint-container">
-
+    <div class="header">
+        <div class="cells-input">
+            <input type="text" id='grid-width' placeholder="Width" value="10">
+            <span>x</span>
+            <input type="text" id='grid-height' placeholder="Height" value="10">
+            <button id="create-grid-btn">Create</button>
+            
+        </div>
+        <div class="actions">
+            <input type="color" id="select-color">
+            <button id="clear-board">Clear Board</button>
+        </div>
     </div>
+    
+    <div class="outer-container">
+        <div class="paint-container">
+        </div>
+    </div>
+    
     <script defer src="main.js"></script>
 </body>
 </html>
