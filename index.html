@@ -9,16 +9,24 @@
 <body>
     <div class="header">
         <h2>Etch a Sketch!</h2>
-        <div class="cells-input">
-            <input type="text" id='grid-width' placeholder="Width">
-            <span>x</span>
-            <input type="text" id='grid-height' placeholder="Height">
-            <button id="create-grid-btn">Create</button>
+        <button id="settings"><img src="images/settings.png" width="65px"></button>
+        <div class="settings">
+            <div class="cells-input">
+                <p>Board Dimensions</p>
+                <input type="text" id='grid-width' placeholder="Width" value="16">
+                <span>x</span>
+                <input type="text" id='grid-height' placeholder="Height" value="16">
+                <button id="create-grid-btn">Create</button>
+            </div>
+            
+            <div class="actions">
+                <p>Color Selection</p>
+                <input type="color" id="select-color">
+                <button id="clear-board">Clear Board</button>
+            </div>
         </div>
-        <div class="actions">
-            <input type="color" id="select-color">
-            <button id="clear-board">Clear Board</button>
-        </div>
+        
+        
     </div>
     
     <div class="paint-container">
