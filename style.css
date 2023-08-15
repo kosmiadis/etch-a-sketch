@@ -5,16 +5,17 @@ body {
 }
 
 .paint-container {
-  outline: 2px solid;
   margin: auto;
-  width: 550px;
-  height: 550px;
+  border: 2px dashed black;
+  width: 90%;
+  max-width: 650px;
+  height: 70%;
+  max-height: 650px;
   display: grid;
   gap: 0;
 }
 
 .paint-container .box {
-  outline: 2px solid black;
   margin: 0;
 }
 

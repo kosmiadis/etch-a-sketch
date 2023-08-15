@@ -1,17 +1,17 @@
 const paintContainer = document.querySelector('.paint-container')
-const GRIDWIDTH = document.querySelector('#grid-width')
-const GRIDHEIGHT = document.querySelector('#grid-height')
+let GRIDWIDTH = document.querySelector('#grid-width')
+let GRIDHEIGHT = document.querySelector('#grid-height')
 const createGridBtn = document.querySelector('#create-grid-btn')
 const clearBoard = document.querySelector('#clear-board')
 const selectColor = document.querySelector('#select-color')
 
 let CURRENTDRAWINGCOLOR = selectColor.value
 
-const GRID = GRIDWIDTH.value * GRIDHEIGHT.value
+let GRID = GRIDWIDTH.value * GRIDHEIGHT.value
 let paintState = false
 
 window.addEventListener('load', e => {
-    initialize()
+    initialize(document.querySelector('#grid-width'), document.querySelector('#grid-height'), )
 })
 
 window.addEventListener('mousedown', e => {
@@ -23,23 +23,35 @@ window.addEventListener('mouseup', e => {
 })
 
 createGridBtn.addEventListener('click', e => {
-    initialize()
+    GRIDWIDTH = document.querySelector('#grid-width')
+    GRIDHEIGHT = document.querySelector('#grid-height')
+    initialize(GRIDWIDTH, GRIDHEIGHT)
+    console.log(GRID, GRIDWIDTH.value, GRIDHEIGHT.value)
+
+    
 })
 
 selectColor.addEventListener('input', e => {
     CURRENTDRAWINGCOLOR = selectColor.value
 })
 
-function initialize () {
-    paintContainer.innerHTML = ''
-    let gridIndex = 1
+function clearBoardFunction () {
+    let boxes = paintContainer.querySelectorAll('.box')
+
+    for (let box of boxes) {
+        box.style.backgroundColor = 'white'
+    }
+}
+
+function initialize (GRIDWIDTH, GRIDHEIGHT) {
+    let gridIndex = 0
     let gridBox
 
-    while (gridIndex <= GRID) {
+    while (gridIndex <= GRIDWIDTH.value * GRIDHEIGHT.value) {
         gridBox = document.createElement('div')
         gridBox.setAttribute('class', 'box')
         gridBox.style.width = `${paintContainer.width / GRIDWIDTH}px`
-        gridBox.style.height = `${paintContainer.height / GRIDHEIGHT}px`
+        gridBox.style.height = 'auto'
 
         paintContainer.appendChild(gridBox)
         gridIndex++
@@ -56,10 +68,7 @@ function initialize () {
     }   
     
     clearBoard.addEventListener('click', e => {
-        let boxes = paintContainer.querySelectorAll('.box')
-
-        for (let box of boxes) {
-            box.style.backgroundColor = 'white'
-        }
+        clearBoardFunction()
     })
 }
+
